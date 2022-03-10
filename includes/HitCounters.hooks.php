@@ -15,6 +15,7 @@ use Title;
 use User;
 use ViewCountUpdate;
 use WikiPage;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 /**
  * PHPMD will warn us about these things here but since they're hooks,
@@ -117,6 +118,13 @@ class Hooks {
 
 	public static function onPageViewUpdates( WikiPage $wikipage, User $user ) {
 		global $wgDisableCounters;
+
+		$CrawlerDetect = new CrawlerDetect;
+
+		// Check the user agent of the current 'visitor'
+		if($CrawlerDetect->isCrawler()) {
+			return;
+		}
 
 		// Don't update page view counters on views from bot users (bug 14044)
 		if (
