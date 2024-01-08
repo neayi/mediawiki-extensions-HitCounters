@@ -43,5 +43,8 @@
 			"phpcbf"
 		],
 		"phpcs": "phpcs -sp"
+	},
+	"require": {
+		"jaybizzle/laravel-crawler-detect": "^1.3"
 	}
 }
