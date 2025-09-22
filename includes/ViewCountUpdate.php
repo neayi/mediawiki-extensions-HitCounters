@@ -53,7 +53,7 @@ class ViewCountUpdate implements DeferrableUpdate, TransactionRoundAwareUpdate {
 		$services = MediaWikiServices::getInstance();
 		$updateFreq = $services->getMainConfig()->get( "HitcounterUpdateFreq" );
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 		$pageId = $this->pageId;
 		$fname = __METHOD__;
 
