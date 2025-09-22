@@ -31,4 +31,12 @@ class HCUpdater extends DatabaseUpdater {
 		$updater = DatabaseUpdater::newForDb( $this->db, $this->shared, $this->maintenance );
 		return $updater->getCoreUpdateList();
 	}
+	
+    /**
+     * Implementation required by MediaWiki\Installer\DatabaseUpdater
+     * @return array
+     */
+    public function getInitialUpdateKeys() {
+        return [];
+    }
 }
