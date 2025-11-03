@@ -63,5 +63,8 @@
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
+	},
+	"require": {
+		"jaybizzle/laravel-crawler-detect": "^1.3"
 	}
 }
